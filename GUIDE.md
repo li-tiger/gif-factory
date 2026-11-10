@@ -6,9 +6,9 @@
 
 需要在能生成图片、运行脚本的 Codex 里使用。
 
-**1. 先安装。** 登录有访问权限的 GitHub 账号，从[项目仓库](https://github.com/li-tiger/gif-factory)下载并解压。在 Codex 中打开项目目录，再发这句话。
+**1. 先安装。** 把这句话发给 Codex。
 
-> 帮我从当前项目目录安装 Tiger GIF 工厂 Skill。
+> 帮我从 https://github.com/li-tiger/gif-factory 安装 Tiger GIF 工厂 Skill，入口是仓库根目录的 `SKILL.md`。
 
 Skill 就是给 Codex 用的做事指南，装好后它会按这套方法制作。
 

@@ -151,9 +151,11 @@
 
 ## 怎么用
 
-登录有仓库访问权限的 GitHub 账号后，先[下载项目](https://github.com/li-tiger/gif-factory/archive/refs/heads/main.zip)并解压，或用 `gh repo clone li-tiger/gif-factory` 下载。在 Codex 中打开项目目录，再发这句话。
+在支持生成图片和运行脚本的 Codex 中，发送这句话安装。
 
-> 帮我从当前项目目录安装 Tiger GIF 工厂 Skill。
+> 帮我从 https://github.com/li-tiger/gif-factory 安装 Tiger GIF 工厂 Skill，入口是仓库根目录的 `SKILL.md`。
+
+也可以[下载项目](https://github.com/li-tiger/gif-factory/archive/refs/heads/main.zip)并解压，在 Codex 中打开项目目录后从本地安装。
 
 然后给参考图、选风格，说想做什么：
 
