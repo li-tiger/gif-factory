@@ -12,12 +12,17 @@ from statistics import median
 
 from PIL import Image, ImageChops, ImageDraw, ImageFont, ImageSequence, ImageStat
 
+PROFILES = ('sticker', 'opaque')
 
-def audit(path, output, focus=None):
-    output.mkdir(parents=True, exist_ok=True)
+
+def audit(path, output, focus=None, *, profile='sticker'):
+    if profile not in PROFILES:
+        raise ValueError(f'Unknown review profile: {profile}')
     frames, durations, boxes = [], [], []
     errors = []
     with Image.open(path) as gif:
+        if gif.format != 'GIF':
+            raise ValueError('Input must be a GIF')
         size, loop = gif.size, gif.info.get('loop')
         for frame in ImageSequence.Iterator(gif):
             rgba = frame.convert('RGBA')
@@ -31,8 +36,12 @@ def audit(path, output, focus=None):
     if any(ms <= 0 for ms in durations):
         errors.append('nonpositive frame delay')
     for i, (frame, box) in enumerate(zip(frames, boxes)):
-        alpha = frame.getchannel('A')
-        if alpha.getextrema() != (0, 255):
+        alpha_range = frame.getchannel('A').getextrema()
+        if profile == 'opaque':
+            if alpha_range != (255, 255):
+                errors.append(f'frame {i}: expected fully opaque pixels')
+            continue
+        if alpha_range != (0, 255):
             errors.append(f'frame {i}: expected transparent and opaque pixels')
         if not box or not (0 < box[0] < box[2] < size[0] and 0 < box[1] < box[3] < size[1]):
             errors.append(f'frame {i}: blank or touches canvas edge')
@@ -41,6 +50,7 @@ def audit(path, output, focus=None):
         errors.append('no visible frame changes')
     if focus and not (0 <= focus[0] < focus[2] <= size[0] and 0 <= focus[1] < focus[3] <= size[1]):
         raise ValueError('Focus box must be inside the GIF')
+    output.mkdir(parents=True, exist_ok=True)
     # Native-size frames: do not shrink these to hide small facial defects.
     columns = min(4, len(frames))
     rows = (len(frames) + columns - 1) // columns
@@ -78,7 +88,7 @@ def audit(path, output, focus=None):
     typical = median(changes)
     candidates = [i for i, value in enumerate(changes) if value > max(.04, typical*2.5)]
     digest = hashlib.sha256(path.read_bytes()).hexdigest()
-    report = dict(gif=path.name, sha256=digest, size=size, decoded_frames=len(frames),
+    report = dict(gif=path.name, sha256=digest, profile=profile, size=size, loop=loop, decoded_frames=len(frames),
                   distinct_frames=distinct, loop_ms=sum(durations), durations_ms=durations,
                   technical_status='failed' if errors else 'passed', errors=errors,
                   transition_change=changes, transition_candidates=candidates,
@@ -133,6 +143,8 @@ def main():
     extract = sub.add_parser('extract')
     extract.add_argument('gif', type=Path)
     extract.add_argument('output', type=Path)
+    extract.add_argument('--profile', choices=PROFILES, default='sticker',
+                         help='sticker: transparent with margins; opaque: full-canvas card or poster')
     extract.add_argument('--focus', nargs=4, type=int, metavar=('LEFT', 'TOP', 'RIGHT', 'BOTTOM'))
     check = sub.add_parser('check')
     check.add_argument('audit', type=Path)
@@ -140,7 +152,10 @@ def main():
     check.add_argument('--gif', type=Path, help='Final GIF to verify; defaults to extracted animation.gif')
     args = parser.parse_args()
     if args.command == 'extract':
-        result = audit(args.gif, args.output, args.focus)
+        try:
+            result = audit(args.gif, args.output, args.focus, profile=args.profile)
+        except (OSError, ValueError) as error:
+            parser.exit(2, str(error)+'\n')
         print(json.dumps({k: result[k] for k in ['technical_status', 'decoded_frames', 'loop_ms', 'transition_candidates']}))
         if result['errors']:
             raise SystemExit(1)

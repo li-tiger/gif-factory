@@ -29,6 +29,8 @@ python3 scripts/review_gif.py extract build/GIF合集/action.gif build/review/ac
 
 The optional focus box is in final GIF pixel coordinates `(left top right bottom)`. Choose it for that character; do not blindly reuse the example. The tool saves every decoded frame, a native-size numbered sheet, optional face detail sheet, a browser player with the actual GIF and frame stepping, a technical audit and a pending `review.json`.
 
+The default `sticker` profile checks for transparency and a margin on every frame. Use `--profile opaque` for a full-canvas card or poster. Both profiles check for visible changes, positive frame delays and an infinite loop.
+
 - Inspect **every** numbered frame for identity, head shape, eyes/mouth, hands/occlusions, costume and stray pieces from adjacent atlas cells. Native-size inspection matters; a tiny grid can hide defects.
 - Watch normal playback and step through suspicious transitions. Inspect first→last→first too. A collection of attractive stills can still flash or jump when animated. A slow player is helpful for repairs but does not replace normal-speed playback.
 - The tool's transition scores only nominate frames to inspect. A valid blink can score high; a malformed face can score low. Never fill visual approvals from those scores or from distinct-frame counts.

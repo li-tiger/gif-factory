@@ -3,7 +3,7 @@ name: pixel-gif-sticker-pack
 description: Create or repair character sticker GIFs, electronic lenticular flip cards, character-led dynamic posters, mascot-led brand films, compact low-frame storybooks, or handwritten artistic signature loops. Choose appearance, movement and output purpose separately; assess source suitability and deliver reviewed media with verified downloads.
 ---
 
-# GIF 工厂 · GIF Factory
+# Tiger GIF 工厂
 
 Carry forward the latest reference, required count, format, language, and visual constraints. For a GLB, render a front or three-quarter reference with the face and identifying details visible. If the user supplied a drawing, preserve the recognizable silhouette, facial features, palette, and signature accessories. Use only imagery the user provided or authorized for the task.
 
@@ -11,7 +11,7 @@ Carry forward the latest reference, required count, format, language, and visual
 
 Use [the style index](styles/README.md) to resolve Chinese/English style names, then read only that `styles/<id>/STYLE.md` and its linked production reference. The six GIF gallery groups are discovery categories, not six new rendering engines. Compact storybooks and brand films are separate narrative extensions. Continue to record appearance, movement and purpose separately, and preserve accepted user choices. Do not invent a new style by only changing a character or promote a pending repair because it appears in the full gallery.
 
-Human-facing name: **GIF 工厂 / GIF Factory**. Keep the existing `$pixel-gif-sticker-pack` invocation identifier compatible. The homepage is a style chooser; [GALLERY.md](GALLERY.md) holds complete series and their status, while [GUIDE.md](GUIDE.md) holds longer usage instructions. Mascot brand films and compact storybooks remain extensions, not GIF loop presets.
+Use **Tiger GIF 工厂** as the display name and `$pixel-gif-sticker-pack` as the invocation identifier. The homepage is a style chooser; [GALLERY.md](GALLERY.md) holds complete series and their status, while [GUIDE.md](GUIDE.md) holds longer usage instructions. Mascot brand films and compact storybooks remain extensions, not GIF loop presets.
 
 ## Choose the output purpose
 

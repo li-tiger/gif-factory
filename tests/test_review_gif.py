@@ -41,6 +41,7 @@ class ReviewGate(unittest.TestCase):
 
     def test_extract_preserves_actual_timing_and_starts_pending(self):
         self.assertEqual(self.report['durations_ms'], [80, 120])
+        self.assertEqual(self.report['profile'], 'sticker')
         self.assertTrue((self.folder/'frame-001.png').is_file())
         self.assertTrue((self.folder/'focus.png').is_file())
         with self.assertRaisesRegex(ValueError, 'incomplete'):
@@ -77,6 +78,30 @@ class ReviewGate(unittest.TestCase):
     def test_invalid_focus_does_not_silently_crop_face(self):
         with self.assertRaisesRegex(ValueError, 'Focus box'):
             review_gif.audit(self.gif, self.root/'bad-focus', [-4, 0, 50, 50])
+
+    def test_full_canvas_gif_uses_opaque_profile(self):
+        path = self.root/'card.gif'
+        frames = [Image.new('RGB', (32, 48), color) for color in ('red', 'blue')]
+        frames[0].save(path, save_all=True, append_images=frames[1:], duration=80, loop=0)
+
+        report = review_gif.audit(path, self.root/'opaque-card', profile='opaque')
+        self.assertEqual(report['profile'], 'opaque')
+        self.assertEqual(report['technical_status'], 'passed')
+        self.assertEqual(report['loop'], 0)
+        self.assertEqual(review_gif.audit(path, self.root/'sticker-card')['technical_status'], 'failed')
+
+    def test_opaque_profile_rejects_transparent_frames(self):
+        report = review_gif.audit(self.gif, self.root/'opaque-review', profile='opaque')
+        self.assertEqual(report['technical_status'], 'failed')
+        self.assertIn('frame 0: expected fully opaque pixels', report['errors'])
+
+    def test_non_gif_file_is_rejected_before_creating_artifacts(self):
+        fake_gif = self.root/'not-gif.gif'
+        Image.new('RGB', (32, 48), 'red').save(fake_gif, format='PNG')
+        output = self.root/'not-gif-review'
+        with self.assertRaisesRegex(ValueError, 'Input must be a GIF'):
+            review_gif.audit(fake_gif, output)
+        self.assertFalse(output.exists())
 
 
 if __name__ == '__main__':

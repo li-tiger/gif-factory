@@ -1,4 +1,4 @@
 interface:
-  display_name: "GIF 工厂"
-  short_description: "Choose GIF styles for characters, cards and dynamic posters"
-  default_prompt: "使用 $pixel-gif-sticker-pack，先从 GIF 工厂风格库选择效果，再根据参考图制作循环 GIF；品牌短片走扩展应用。"
+  display_name: "Tiger GIF 工厂"
+  short_description: "为角色、光栅卡和动态海报选择风格，制作并检查循环 GIF"
+  default_prompt: "使用 $pixel-gif-sticker-pack，从 Tiger GIF 工厂风格库选一种效果，根据参考图制作一张循环 GIF，并检查实际播放。"

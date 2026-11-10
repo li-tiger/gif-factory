@@ -1,4 +1,6 @@
-# GIF 工厂
+# Tiger GIF 工厂
+
+由 [li-tiger](https://github.com/li-tiger) 维护。
 
 [像素与游戏](#pixel-games) · [插画与二次元](#illustration-anime) · [真人与宠物](#people-pets) · [材质与吉祥物](#materials-mascots) · [卡片与变画](#cards-transforms) · [海报与文字](#posters-type) · [品牌短片](#brand-films) · [动态绘本](#storybooks)
 
@@ -9,7 +11,7 @@
 
 **6 个 GIF 分类 · 10 个 GIF 风格入口 · 75 个动态案例，另有动态绘本和品牌短片**
 
-[浏览风格](styles/README.md) · [完整作品库](GALLERY.md) · [怎么使用](GUIDE.md) · [Skill](SKILL.md) · [下载项目](https://github.com/WoYun520/gif-factory/archive/refs/heads/main.zip)
+[浏览风格](styles/README.md) · [完整作品库](GALLERY.md) · [怎么使用](GUIDE.md) · [Skill](SKILL.md) · [下载项目](https://github.com/li-tiger/gif-factory/archive/refs/heads/main.zip)
 
 ## 精选：漫画印刷动态海报
 
@@ -149,17 +151,17 @@
 
 ## 怎么用
 
-在能生成图片、运行脚本的 Codex 里安装：
+登录有仓库访问权限的 GitHub 账号后，先[下载项目](https://github.com/li-tiger/gif-factory/archive/refs/heads/main.zip)并解压，或用 `gh repo clone li-tiger/gif-factory` 下载。在 Codex 中打开项目目录，再发这句话。
 
-> 帮我安装 GIF 工厂：https://github.com/WoYun520/gif-factory
+> 帮我从当前项目目录安装 Tiger GIF 工厂 Skill。
 
 然后给参考图、选风格，说想做什么：
 
 > 使用 $pixel-gif-sticker-pack，按“漫画印刷整体融合”风格，做一张我这个角色的动态宣传海报。人物和字一起变化，6 秒循环，先给一张看看。
 
-也可以说“像素完整动作，每个角色 5 张”或“保留这张照片，做轻动效”。已经认可的小样会继续沿用。GIF 工厂的调用名暂时保留 `$pixel-gif-sticker-pack`，已有用法不变。
+也可以说“像素完整动作，每个角色 5 张”或“保留这张照片，做轻动效”。已经认可的小样会继续沿用。调用名为 `$pixel-gif-sticker-pack`。
 
-[详细使用指南](GUIDE.md) · [不知道选哪种？看风格索引](styles/README.md)
+[详细使用指南](GUIDE.md) · [不知道选哪种？看风格索引](styles/README.md) · [检查导出的 GIF](GUIDE.md#检查导出的-gif)
 
 <a id="表情包展厅"></a>
 <a id="动态海报展厅"></a>

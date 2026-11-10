@@ -1,4 +1,4 @@
-# GIF 工厂 · 完整作品库
+# Tiger GIF 工厂 · 完整作品库
 
 [返回首页](README.md) · [按风格浏览](styles/README.md) · [使用指南](GUIDE.md)
 
@@ -8,7 +8,7 @@
 
 **各系列默认收起；点击对应窗口即可展开分类动图。**
 
-[下载整个项目：244 张表情包示例＋2 张重做试样＋9 张光栅卡＋13 张动态海报＋品牌短片案例](https://github.com/WoYun520/gif-factory/archive/refs/heads/main.zip)
+[下载整个项目：244 张表情包示例＋2 张重做试样＋9 张光栅卡＋13 张动态海报＋品牌短片案例](https://github.com/li-tiger/gif-factory/archive/refs/heads/main.zip)
 
 ### 大肥鱼 · 精选动态预览
 
@@ -363,7 +363,7 @@
 
 上面是缩小的动图预览，完整 MP4 为 1920 × 1080、有配乐。慢慢面包店是虚构品牌，这版效果已经得到使用者认可。
 
-[查看 / 下载完整视频](https://raw.githubusercontent.com/WoYun520/gif-factory/main/examples/brand-films/manman-bakery/film.mp4) · [下载可编辑工程](examples/brand-films/manman-bakery/editable-project.zip) · [查看案例和素材署名](examples/brand-films/manman-bakery/README.md)
+[查看 / 下载完整视频](examples/brand-films/manman-bakery/film.mp4) · [下载可编辑工程](examples/brand-films/manman-bakery/editable-project.zip) · [查看案例和素材署名](examples/brand-films/manman-bakery/README.md)
 
 这次借鉴了 [gbro-collage-broll](https://github.com/pyang5166/gbro-collage-broll) 的构思和组装流程，结合本项目的角色动作方法，用可编辑图层完成；没有调用它的 Gemini 视频脚本。发布配乐版时保留[音乐署名](examples/brand-films/manman-bakery/CREDITS.md)。
 

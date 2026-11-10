@@ -4,7 +4,7 @@
 
 <img src="preview.gif" alt="慢慢面包店15秒融合短片动态预览" width="720">
 
-[播放 / 下载完整 MP4](https://raw.githubusercontent.com/WoYun520/gif-factory/main/examples/brand-films/manman-bakery/film.mp4) · [下载可编辑工程 ZIP](editable-project.zip) · [直接看工程文件](project/) · [下载角色 GIF](../../clay-bakery/clay-bakery-4-gifs.zip)
+[播放 / 下载完整 MP4](film.mp4) · [下载可编辑工程 ZIP](editable-project.zip) · [直接看工程文件](project/) · [下载角色 GIF](../../clay-bakery/clay-bakery-4-gifs.zip)
 
 ## 这一条讲什么
 

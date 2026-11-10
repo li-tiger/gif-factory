@@ -1,4 +1,4 @@
-# GIF 工厂 · 使用与制作指南
+# Tiger GIF 工厂 · 使用与制作指南
 
 [返回首页](README.md) · [风格库](styles/README.md) · [完整作品库](GALLERY.md)
 
@@ -6,9 +6,9 @@
 
 需要在能生成图片、运行脚本的 Codex 里使用。
 
-**1. 先安装。** 把这句话发给 Codex：
+**1. 先安装。** 登录有访问权限的 GitHub 账号，从[项目仓库](https://github.com/li-tiger/gif-factory)下载并解压。在 Codex 中打开项目目录，再发这句话。
 
-> 帮我安装GIF 工厂 Skill：https://github.com/WoYun520/gif-factory
+> 帮我从当前项目目录安装 Tiger GIF 工厂 Skill。
 
 Skill 就是给 Codex 用的做事指南，装好后它会按这套方法制作。
 
@@ -152,6 +152,17 @@ Skill 就是给 Codex 用的做事指南，装好后它会按这套方法制作�
 动态海报交付独立循环 GIF 和合集预览。当前案例是两张完整海报关键状态切换；需要逐字修改文案时，另做分层文字。
 
 品牌短片另外交付视频、可编辑工程和必要的素材署名，尺寸、时长按用途来定。不会因为做了广告，就自动再生成一整套表情包。
+
+## 检查导出的 GIF
+
+用 Python 3 和 Pillow 生成逐帧图片、浏览器预览和质检报告。透明表情包直接运行第一行命令。全幅不透明的光栅卡或动态海报加 `--profile opaque`。
+
+```sh
+python3 scripts/review_gif.py extract sticker.gif build/review/sticker
+python3 scripts/review_gif.py extract card.gif build/review/card --profile opaque
+```
+
+打开对应目录的 `index.html` 看实际播放、逐帧细节和循环衔接。`audit.json` 记录尺寸、帧数、延时和循环设置。查看[逐帧检查流程](references/stability.md)了解如何记录审阅结果。
 
 ## 人物有点糊怎么办
 
