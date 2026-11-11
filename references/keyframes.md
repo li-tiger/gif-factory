@@ -18,22 +18,21 @@ Use a separate keyframe manifest with the familiar `title`, `count` and `groups`
 
 ```json
 {
-  "title": "点赞小样",
+  "title": "点头小样",
   "count": 1,
   "groups": [{
-    "name": "点赞",
-    "atlas": "thumbs-up.png",
+    "name": "点头",
+    "atlas": "nod.png",
     "grid": [4, 1],
     "entries": [{
-      "name": "人物-稳了",
-      "text": "稳了",
+      "name": "人物-好的",
+      "text": "好的",
       "frames": [
-        {"cell": [0, 0], "duration": 320},
-        {"cell": [1, 0], "duration": 120},
-        {"cell": [2, 0], "duration": 120},
-        {"cell": [3, 0], "duration": 320},
-        {"cell": [2, 0], "duration": 120},
-        {"cell": [1, 0], "duration": 120}
+        {"cell": [0, 0], "duration": 620},
+        {"cell": [1, 0], "duration": 220},
+        {"cell": [2, 0], "duration": 480},
+        {"cell": [3, 0], "duration": 220},
+        {"cell": [0, 0], "duration": 1260}
       ]
     }]
   }]
@@ -44,7 +43,7 @@ Use a separate keyframe manifest with the familiar `title`, `count` and `groups`
 python3 scripts/export_keyframes.py actions.json build --font /path/to/font.ttf --preview
 ```
 
-`duration` is milliseconds, defaults to 120, and must be a positive multiple of 20. The example loops in 1.12 seconds. Optional entry `ink` changes caption color. `name` controls the filename; it does not change the visible caption. A frame can override `crop: [left, top, right, bottom]`, but crops must retain the grid cell dimensions (within one pixel) and common alignment. Use another compositor for differently framed or differently sized source images. Optional top-level `credits` is written into the ZIP as a source/production note.
+`duration` is milliseconds, defaults to 120, and must be a positive multiple of 20. The example shows one nod in 2.8 seconds, from upright to dipping, holding the nod, lifting, and settling upright. The final hold gives the viewer time to read. For a long caption, use a compositor that supports line breaks and keep both lines visible throughout the loop. Optional entry `ink` changes caption color. `name` controls the filename; it does not change the visible caption. A frame can override `crop: [left, top, right, bottom]`, but crops must retain the grid cell dimensions (within one pixel) and common alignment. Use another compositor for differently framed or differently sized source images. Optional top-level `credits` is written into the ZIP as a source/production note.
 
 The compositor uses source-resolution LANCZOS sampling, one shared crop and scale, 512 × 512 output, native-size captions and a shared GIF palette. It does not apply the single-pose squash or motion presets. It writes categorized GIFs, an offline gallery and a verified ZIP; `--preview` adds a header-free MP4 assembled from decoded GIFs with their actual timing. Previews paginate at 16 stickers and play each page for three cycles of its longest loop.
 

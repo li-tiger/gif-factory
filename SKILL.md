@@ -60,9 +60,12 @@ Do not assume all six combinations have the same ready-made exporter or visual r
 ## Design and generate
 
 - For a large pack, plan categories first and give each sticker a chat line, a visible pose or prop, and an animated beat. Review neighboring concepts for semantic duplicates. An identical pose with new text alone is insufficient.
+- Match the main action to the caption. For example, show one nod for “好的”, one pass across the frame for “一位靓仔偶然路过”, or one face-covering tearful reaction for “猛虎落泪”. Keep one main action per loop and use accents only to support that action.
+- When playback feels rushed or the caption needs reading time, start with a 2.8–3 second loop. Hold a readable pose before or after the gesture, with most of the extra time on the hold. Adjust after watching the exported GIF at chat size. Follow any explicit duration request.
+- Preserve user-supplied lines. When the user asks for memes, choose phrases that fit both the chat situation and the visible action. Break long captions at a natural phrase boundary, keep the text fixed throughout playback, and check legibility in the exported GIF. Use a compositor that supports multiline captions when needed.
 - Use the image generation tool for new pose art. Ask for one transparent sprite atlas at a time, usually a 4 × 4 sheet with wide gutters and no lettering. Give exact reading order, stable framing and identity anchors. Keep lettering in composition, where it can be verified.
 - Inspect each atlas at full size. Count actual occupied cells, map each cell to its visible pose, and correct a mismatched caption or regenerate an unusable sprite. Watch for swapped cells, clipped hair or hands, and artifacts across gutters. A 100-sticker pack needs 100 accepted entries.
-- For tiny chat previews, prefer strong readable facial expressions, a short caption and one clear moving accent. Let each motion settle naturally into the next loop. Keep the original source and generated atlases outside the shareable ZIP unless requested.
+- For tiny chat previews, prefer strong readable facial expressions and a legible caption. Let each motion settle naturally into the next loop. Keep the original source and generated atlases outside the shareable ZIP unless requested.
 
 ## Articulated actions
 
